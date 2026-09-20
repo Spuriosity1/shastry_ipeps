@@ -56,7 +56,7 @@ def run_one(D, chi, jp, j4, device_str, stages, nx, ny):
     """Build an iPEPS at bond dimension D, evolve+measure, return (row, stages, meas)."""
     assert j4 == 0.0, "J4 must be 0.0 for the canonical Shastry-Sutherland sweep"
     config = {
-        "dtype": "float64",
+        "dtype": "float32",
         "device": device_str,
         "TN": {"dims": {"phys": 16, "bond": D, "chi": chi}, "nx": nx, "ny": ny},
     }
