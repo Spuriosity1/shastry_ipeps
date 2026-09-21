@@ -31,11 +31,11 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from evolve_gs_shastry import ShastrySutherlandModel          # noqa: E402
 from acetn.ipeps import Ipeps                                  # noqa: E402
 
+
 # --- sweep grid: array index -> Jp -------------------------------------------
 # J = 1 fixed; Jp = J'/J is the diagonal dimer coupling being swept.
 # Corboz-Mila boundaries sit near J/J' ~ 0.675 and 0.765  <=>  Jp ~ 1.48, 1.31.
-# TEST: index 0 only. PROD: e.g. list(np.round(np.arange(0.80, 2.01, 0.05), 3)).
-JP_VALUES = [1.4]
+JP_VALUES = [1., 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7]
 
 # staged imaginary-time schedule (dtau, steps). First stage also warms up CUDA
 # (cuBLAS / kernel init); steady-state ms/step is taken from the LAST stage.
