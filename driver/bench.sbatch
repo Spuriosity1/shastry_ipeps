@@ -5,7 +5,6 @@
 # PROD: see the marked lines below (widen --array, --dmax 10, longer --time).
 #
 #SBATCH --job-name=ss_bench
-#SBATHC --array=0-6
 #SBATCH --nodes=1
 #SBATCH --ntasks=1                         # acetn is a single process (1 GPU); array-parallelise over Jp
 #SBATCH --cpus-per-gpu=1                 # TODO adjust
@@ -40,3 +39,5 @@ torchrun --nproc_per_node=$SLURM_NTASKS driver/run_sweep.py \
     --j4 0.0 \
     --device cuda \
     --outdir $out_dir
+
+

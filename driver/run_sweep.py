@@ -35,7 +35,7 @@ from acetn.ipeps import Ipeps                                  # noqa: E402
 # --- sweep grid: array index -> Jp -------------------------------------------
 # J = 1 fixed; Jp = J'/J is the diagonal dimer coupling being swept.
 # Corboz-Mila boundaries sit near J/J' ~ 0.675 and 0.765  <=>  Jp ~ 1.48, 1.31.
-JP_VALUES = [1., 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7]
+JP_VALUES = [0., 0.1, 0.2, 0.3, 0.4, 0.5, 2.5, 2.4, 2.3, 2.2, 2.1]
 
 # staged imaginary-time schedule (dtau, steps). First stage also warms up CUDA
 # (cuBLAS / kernel init); steady-state ms/step is taken from the LAST stage.
@@ -59,6 +59,9 @@ def run_one(D, chi, jp, j4, device_str, stages, nx, ny):
         "dtype": "float32",
         "device": device_str,
         "TN": {"dims": {"phys": 16, "bond": D, "chi": chi}, "nx": nx, "ny": ny},
+        "evolution": {
+            "backend": "cutensor",  # Use cuTENSOR backend (default: "torch")
+        },
     }
     params = {"J": 1.0, "Jp": jp, "J4": j4}
 
