@@ -189,9 +189,9 @@ if __name__=='__main__':
     config = {
         'dtype': "float64",
         'device': "cuda",
-            "evolution": {
-        "backend": "cutensor",  # Use cuTENSOR backend (default: "torch")
-    },
+        "evolution": {
+            "backend": "cutensor",  # Use cuTENSOR backend (default: "torch")
+        },
         'TN':{
             'dims': dims,
             'nx': 2,
